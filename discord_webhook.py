@@ -43,6 +43,10 @@ def run_thread(webhook_url, filename):
 
             date_str, link = row
 
+            # Skip comment
+            if (date_str.startswith('-')):
+                continue
+
             date_obj = datetime.datetime.strptime(date_str, "%m/%d/%y").date()
 
             if date_obj == datetime.date.today():
@@ -56,8 +60,8 @@ def run_thread(webhook_url, filename):
 
 if __name__ == "__main__":
     # Set the Discord webhook URL
-    easy_webhook_url = os.environ.get("DLC_WEBHOOK_URL")
-    shuffled_webhook_url = os.environ.get("DLC_WEBHOOK_URL_2")
+    ordered_webhook_url = os.environ.get("DLC_WEBHOOK_URL_ORDERED")
+    shuffled_webhook_url = os.environ.get("DLC_WEBHOOK_URL_SHUFFLED")
 
-    run_thread(easy_webhook_url, "ordered-neetcode_150_list.csv")
+    run_thread(ordered_webhook_url, "ordered-neetcode_150_list.csv")
     run_thread(shuffled_webhook_url, "shuffled-neetcode_150_list.csv")
