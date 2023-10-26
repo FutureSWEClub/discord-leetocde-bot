@@ -53,6 +53,8 @@ def run_thread(webhook_url, filename):
                 message = f"Day {idx+1}: {link}"
                 try:
                     send_discord_message(webhook_url, message)
+                    return
+
                 except Exception as e:
                     print(f"An error occurred while sending the Discord message: {e}")
                     raise e
