@@ -50,7 +50,7 @@ def run_thread(webhook_url, filename):
             date_obj = datetime.datetime.strptime(date_str, "%m/%d/%y").date()
 
             if date_obj == datetime.date.today():
-                message = f"Day {idx+1}: {link}"
+                message = f"Day {idx}: {link}"
                 try:
                     send_discord_message(webhook_url, message)
                     return
