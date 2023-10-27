@@ -2,7 +2,7 @@ name: daily-challenge
 
 on:
   schedule:
-  - cron: "0 9 * * *"       # 9:00am
+  - cron: "0 16 * * *"       # 9:00am
   workflow_dispatch:
 
 jobs:
